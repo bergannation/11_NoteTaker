@@ -15,6 +15,10 @@ module.exports = (app) => {
   app.post("/api/notes", (req, res) => {
     let newNote = req.body;
 
+    let previousId = newNotes[newNotes.length - 1]["id"];
+    let newId = previousId + 1;
+    newNote["id"] = newId;
+
     //
     console.log("Req.body:", newNote);
     newNotes.push(newNote);
@@ -26,5 +30,21 @@ module.exports = (app) => {
     );
 
     res.json(newNote);
+  });
+
+  // delete notes functionality
+
+  app.delete("/api/notes/:id", (req, res) => {
+    const chosen = parseInt(req.params.id);
+
+    console.log("request: ", chosen);
+
+    for (let i = 0; i < characters.length; i++) {
+      if (chosen === characters[i].routeName) {
+        return res.json(characters[i]);
+      }
+    }
+
+    return res.json(false);
   });
 };
