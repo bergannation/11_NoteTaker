@@ -48,9 +48,9 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 Below are links to access this live website and repository.
 
-Github:
+Github: https://github.com/bergannation/11_NoteTaker
 
-Deployed Video Link:
+Deployed URL (Heroku): https://bergan-notetaker2.herokuapp.com/
 
 ## Mock-Up
 
