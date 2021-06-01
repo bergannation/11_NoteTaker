@@ -39,12 +39,13 @@ module.exports = (app) => {
 
     console.log("request: ", chosen);
 
-    for (let i = 0; i < characters.length; i++) {
-      if (chosen === characters[i].routeName) {
-        return res.json(characters[i]);
+    for (let i = 0; i < newNotes.length; i++) {
+      if (chosen === newNotes[i].id) {
+        newNotes.splice([i], 1);
       }
     }
 
-    return res.json(false);
+    writeFileAsync("./db/newNotes.json", JSON.stringify(newNotes), (err) => {});
+    res.json(newNotes);
   });
 };
