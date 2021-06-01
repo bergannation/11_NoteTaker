@@ -29,7 +29,7 @@ module.exports = (app) => {
       }
     );
 
-    res.json(newNote);
+    res.end();
   });
 
   // delete notes functionality
@@ -46,6 +46,6 @@ module.exports = (app) => {
     }
 
     writeFileAsync("./db/newNotes.json", JSON.stringify(newNotes), (err) => {});
-    res.json(newNotes);
+    res.end();
   });
 };
